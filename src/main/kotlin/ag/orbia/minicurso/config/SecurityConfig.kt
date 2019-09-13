@@ -24,7 +24,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
-					.successForwardUrl("/questions")
+					.defaultSuccessUrl("/questions")
 				.and()
 				.httpBasic()
 	}
