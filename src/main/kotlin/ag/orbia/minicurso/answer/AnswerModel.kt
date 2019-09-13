@@ -2,13 +2,13 @@ package ag.orbia.minicurso.answer
 
 import ag.orbia.minicurso.question.QuestionModel
 import ag.orbia.minicurso.user.UserModel
-import org.springframework.data.annotation.Id
 import java.util.*
 import javax.persistence.*
 import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
 
 @Entity
+@Table(name = "answer", schema = "forum")
 data class AnswerModel(
         @Id
         @SequenceGenerator(name = "AnswerGen", schema = "forum", allocationSize = 1, initialValue = 1, sequenceName = "answer_sequence")
