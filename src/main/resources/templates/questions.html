@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perguntas</title>
+</head>
+<body>
+    <h1> Lista de perguntas disponíveis</h1>
+    <div th:each="question: ${questions}">
+        <span th:text="${question.title}"> </span>
+    </div>
+</body>
+</html>
