@@ -4,9 +4,7 @@ import ag.orbia.minicurso.question.QuestionModel
 import ag.orbia.minicurso.user.UserModel
 import org.springframework.data.annotation.Id
 import java.util.*
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.SequenceGenerator
+import javax.persistence.*
 import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
 
@@ -19,9 +17,11 @@ data class AnswerModel(
         @NotEmpty
         val body: String = "",
         @NotNull
+        @ManyToOne
         val question: QuestionModel = QuestionModel(),
         @NotNull
-        val responseDate: Date = Date(0),
+        val answerDate: Date = Date(0),
         @NotNull
+        @ManyToOne
         val author: UserModel = UserModel()
 )
