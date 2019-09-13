@@ -1,10 +1,12 @@
 package ag.orbia.minicurso.authentication
 
+import ag.orbia.minicurso.user.UserModel
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
-class UserLogin : UserDetails {
+class UserLogin(private val user: UserModel) : UserDetails {
+
 	override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
 		return listOf(SimpleGrantedAuthority("USER")).toMutableList()
 	}
@@ -14,7 +16,7 @@ class UserLogin : UserDetails {
 	}
 
 	override fun getUsername(): String {
-		return "hello"
+		return user.email
 	}
 
 	override fun isCredentialsNonExpired(): Boolean {
@@ -22,7 +24,7 @@ class UserLogin : UserDetails {
 	}
 
 	override fun getPassword(): String {
-		return "hello"
+		return user.password
 	}
 
 	override fun isAccountNonExpired(): Boolean {
