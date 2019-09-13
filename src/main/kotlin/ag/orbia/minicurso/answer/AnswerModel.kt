@@ -17,9 +17,12 @@ data class AnswerModel(
 		@NotEmpty
 		val body: String = "",
 		@NotNull
+		@ManyToOne
 		val question: QuestionModel = QuestionModel(),
 		@NotNull
 		val responseDate: Date = Date(0),
+
 		@NotNull
+		@ManyToOne
 		val author: UserModel = UserModel()
 )
