@@ -9,6 +9,7 @@ CREATE TABLE forum.user (
         default nextval('forum.user_sequence'),
     name varchar(255) not null,
     email varchar(512) not null,
+    password varchar(255) not null
 );
 
 CREATE SEQUENCE forum.question_sequence;
@@ -22,7 +23,7 @@ CREATE TABLE forum.question (
     body varchar(1024) not null,
     author_id bigint not null,
     creation_date timestamp not null,
-    foreign key (author_id) references  forum.author (id)
+    foreign key (author_id) references  forum.user (id)
 );
 
 CREATE SEQUENCE forum.answer_sequence;
@@ -37,5 +38,5 @@ CREATE TABLE forum.answer (
     author_id bigint not null,
     answer_date timestamp not null,
     foreign key (question_id) references forum.question (id),
-    foreign key (author_id) references  forum.author (id)
+    foreign key (author_id) references  forum.user (id)
 );
