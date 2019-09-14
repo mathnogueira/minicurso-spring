@@ -20,6 +20,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
 		http
 				.cors().and().csrf().disable()
 				.authorizeRequests()
+//				.anyRequest().permitAll()
 				.antMatchers("/user/register", "/home").permitAll()
 				.anyRequest().authenticated()
 				.and()

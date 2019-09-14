@@ -17,7 +17,7 @@ data class QuestionModel(
         @NotNull
         val body: String = "",
         @NotNull
-        val creationDate: Date = Date(0),
+        var creationDate: Date = Date(0),
         @NotNull
         @ManyToOne
         val author: UserModel = UserModel()
